@@ -1,1 +1,5 @@
 css/bootstrap.css
+css/*.bak
+*.bak
+.vscode/*.*
+backup/*.*

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Remember Number - jq</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!--link rel="stylesheet" href="css/bootstrap.css"-->
+    <link rel="stylesheet" href="css/rnjq.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="rnjq.js"></script>
+</head>
+
+<body oncopy="return false" oncut="return false">
+    <div class="container main-title-section">
+        <div class="android-version">
+            <a href="https://play.google.com/store/apps/details?id=com.gwolabs.numberblink20&hl=en" 
+                target="_blank" class="btn btn-link" data-toggle="tooltip" title="Get it on Google Play">Android</a>
+            <a href="./index.html" class="btn btn-link" data-toggle="tooltip" title="Remember Number ++, more fun">rn++</a>            
+        </div>
+        <span class="main-title">Remember Number 1.0</span>
+        <span class="main-title-sub">A Digit Span Memory Game</span>
+        <span><small>v0.5 (in jquery)</small></span>
+        <div class="main-help">
+            <span class="btn btn-link" onclick="showHelp()">Help</span>
+        </div>
+    </div>
+
+    <!-- Number of digits section -->
+    <div class="container game-parms-section">
+        <div id="digits-title" class="digits-title">Digits:</div>
+        <!-- template 
+        <div id="digits-4" class="btn digits-number2" value="4">
+            <div class="tooltip2">4<span id="digits-tooltip-4" class="tooltip2text">4ms</span></div>
+        </div>
+        -->
+        <div id="digits-wrapper" style="display: inline"></div>
+
+        <div class="form-group game-type">
+            <select class="form-control" id="game-type-select" onchange="changeGameType()">
+                <option value="N">Normal Speed</option>
+                <option value="S">Super Speed</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Score section -->
+    <div class="container score-section">
+        <div class="new-game-section">
+            <span class="btn btn-sm btn-primary" onclick="startNewGame()">New Game</span>
+        </div>
+        <div class="change-font-size">
+            <span class="btn btn-sm btn-primary" onclick="changeFontSize(-1)">-</span>
+            <span class="btn btn-sm btn-primary" onclick="changeFontSize(0)">A</span>
+            <span class="btn btn-sm btn-primary" onclick="changeFontSize(1)">+</span>
+        </div>
+
+        <div class="score-details">
+            <span>Score: </span>
+            <span id="score-1" class="label score-number">1</span>
+            <span id="score-2" class="label score-number">2</span>
+            <span id="score-3" class="label score-number">3</span>
+            <span class="label score-number">&nbsp;</span>
+        </div>
+    </div>
+
+    <!-- Timer bar section -->
+    <div class="container timer-section">
+        <p id="timer-title">Display Time: <span id="timer-time">0</span> ms</p>
+        <div class="progress1">
+            <div id="timer-bar" class="progress-bar1" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:0% ">
+            </div>
+        </div>
+    </div>
+
+    <div class="container instruction-section">
+        <span id="new-game"></span>
+        <span id="final-score"></span>
+        <span id="instruction-detail"></span>
+    </div>
+
+    <div class="container try-section">
+        <table class="try-table">
+            <tr class="try-tr">
+                <td class="try-label">Question:</td>
+                <td>
+                    <div id="try-display-question">_</div>
+                </td>
+                <td>
+                    <div id="try-comment-question" class="try-comment"></div>
+                </td>
+            </tr>
+            <tr class="try-tr">
+                <td class="try-label">Guess:</td>
+                <td>
+                    <div id="try-display-guess">_</div>
+                </td>
+                <td>
+                    <div id="try-comment-guess" class="try-comment"></div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="input-number-section" class="container input-section">
+        <span id="input-1" class="btn btn-sml btn-info input-number" onclick="addNumber(1)">1</span>
+        <span id="input-2" class="btn btn-sml btn-info input-number" onclick="addNumber(2)">2</span>
+        <span id="input-3" class="btn btn-sml btn-info input-number" onclick="addNumber(3)">3</span>
+        <span id="input-4" class="btn btn-sml btn-info input-number" onclick="addNumber(4)">4</span>
+        <span id="input-5" class="btn btn-sml btn-info input-number" onclick="addNumber(5)">5</span>
+        <span id="input-6" class="btn btn-sml btn-info input-number" onclick="addNumber(6)">6</span>
+        <span id="input-7" class="btn btn-sml btn-info input-number" onclick="addNumber(7)">7</span>
+        <span id="input-8" class="btn btn-sml btn-info input-number" onclick="addNumber(8)">8</span>
+        <span id="input-9" class="btn btn-sml btn-info input-number" onclick="addNumber(9)">9</span>
+        <span id="input-0" class="btn btn-sml btn-info input-number" onclick="addNumber(0)">0</span>
+        <span id="input-10" class="btn btn-sml btn-info input-number" onclick="addNumber(10)">DEL</span>
+        <span id="input-11" class="btn btn-sml btn-info input-number" onclick="addNumber(11)">CLR</span>
+    </div>
+
+    <div id="buttons" class="container button-section">
+        <button id="btn-show" type="button" class="btn btn-danger" onclick="showQuestion()">Show</button>
+        <button id="btn-hide" type="button" class="btn btn-warning" onclick="hideQuestion()">Hide</button>
+        <button id="btn-guess" type="button" class="btn btn-success" onclick="guessQuestion()">Guess</button>
+    </div>
+
+    <div id="play-again" class="container play-again-section">
+        <button id="btn-play-again" type="button" class="btn btn-primary" onclick="newGame()">Play Again</button>
+        <button id="btn-next-level" type="button" class="btn btn-primary" onclick="playNextLevel()">Next Level</button>
+    </div>
+
+    <div class="container end-section">
+    </div>
+
+    <div id="help-section">
+        <div class="overlay-section">
+            <div class="help-details">
+                <div class="btn btn-primary" onclick="showHelp()">Close</div>
+                <h4>The Game</h4>
+                <p>This is a simple game where the computer displays a number and you remember it. The catch is that the number
+                    is display for a very short time (it only seems that way).
+                </p>
+                <ol>
+                    <li>SHOW - display the number</li>
+                    <li>HIDE - hide number if done before time runs out</li>
+                    <li>GUESS - check your input number</li>
+                </ol>
+            </div>
+            <p />
+
+            <div class="changelog-details">
+                <h4>Changelog</h4>
+                v0.5 2016-08-03<br/>
+                <ul>
+                    <li>Initial release</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

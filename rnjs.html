@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Remember Number</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!--link rel="stylesheet" href="css/bootstrap.css"-->
+    <link rel="stylesheet" href="css/rnjs.css">
+    <script src="rnjs.js"></script>
+</head>
+
+<body onload="main()" oncopy="return false" oncut="return false">
+    <div class="container main-title-section">
+        <div class="android-version">
+            <a href="https://play.google.com/store/apps/details?id=com.gwolabs.numberblink20&hl=en" target="_blank" class="btn btn-link">Android Version</a>
+        </div>
+        <span class="main-title">Just Remember The Number</span>
+        <span class="main-title-sub">A Digit Span Memory Game</span>
+        <span><small>v0.5</small></span>
+        <div class="main-help">
+            <span class="btn btn-link" onclick="showHelp()">Help</span>
+        </div>
+    </div>
+
+    <!-- Number of digits section -->
+
+    <div class="container game-parms-section">
+        <div class="digits-title">Digits:</div>
+        <div id="digits-4" class="btn digits-number" onclick="startNewGame(4)">
+            <div class="tooltip2">4<span id="digits-tooltip-4" class="tooltip2text">4ms</span></div>
+        </div>
+        <div id="digits-5" class="btn digits-number" onclick="startNewGame(5)">
+            <div class="tooltip2">5<span id="digits-tooltip-5" class="tooltip2text">5ms</span></div>
+        </div>
+        <div id="digits-6" class="btn digits-number" onclick="startNewGame(6)">
+            <div class="tooltip2">6<span id="digits-tooltip-6" class="tooltip2text">6ms</span></div>
+        </div>
+        <div id="digits-7" class="btn digits-number" onclick="startNewGame(7)">
+            <div class="tooltip2">7<span id="digits-tooltip-7" class="tooltip2text">7ms</span></div>
+        </div>
+        <div id="digits-8" class="btn digits-number" onclick="startNewGame(8)">
+            <div class="tooltip2">8<span id="digits-tooltip-8" class="tooltip2text">8ms</span></div>
+        </div>
+        <div id="digits-9" class="btn digits-number" onclick="startNewGame(9)">
+            <div class="tooltip2">9<span id="digits-tooltip-9" class="tooltip2text">7ms</span></div>
+        </div>
+        <div id="digits-10" class="btn digits-number" onclick="startNewGame(10)">
+            <div class="tooltip2">10<span id="digits-tooltip-10" class="tooltip2text">7ms</span></div>
+        </div>
+        <div id="digits-11" class="btn digits-number" onclick="startNewGame(11)">
+            <div class="tooltip2">11<span id="digits-tooltip-11" class="tooltip2text">7ms</span></div>
+        </div>
+        <div id="digits-12" class="btn digits-number" onclick="startNewGame(12)">
+            <div class="tooltip2">12<span id="digits-tooltip-12" class="tooltip2text">7ms</span></div>
+        </div>
+        <div id="digits-13" class="btn digits-number" onclick="startNewGame(13)">
+            <div class="tooltip2">13<span id="digits-tooltip-13" class="tooltip2text">7ms</span></div>
+        </div>
+        <div id="digits-14" class="btn digits-number" onclick="startNewGame(14)">
+            <div class="tooltip2">14<span id="digits-tooltip-14" class="tooltip2text">7ms</span></div>
+        </div>
+        <div id="digits-15" class="btn digits-number" onclick="startNewGame(15)">
+            <div class="tooltip2">15<span id="digits-tooltip-15" class="tooltip2text">7ms</span></div>
+        </div>
+        <div id="digits-16" class="btn digits-number" onclick="startNewGame(16)">
+            <div class="tooltip2">16<span id="digits-tooltip-16" class="tooltip2text">7ms</span></div>
+        </div>
+        <div id="digits-17" class="btn digits-number" onclick="startNewGame(17)">
+            <div class="tooltip2">17<span id="digits-tooltip-17" class="tooltip2text">7ms</span></div>
+        </div>
+        <div id="digits-18" class="btn digits-number" onclick="startNewGame(18)">
+            <div class="tooltip2">18<span id="digits-tooltip-18" class="tooltip2text">7ms</span></div>
+        </div>
+        <div id="digits-19" class="btn digits-number" onclick="startNewGame(19)">
+            <div class="tooltip2">19<span id="digits-tooltip-19" class="tooltip2text">7ms</span></div>
+        </div>
+        <div id="digits-20" class="btn digits-number" onclick="startNewGame(20)">
+            <div class="tooltip2">20<span id="digits-tooltip-20" class="tooltip2text">7ms</span></div>
+        </div>
+        <div id="digits-21" class="btn digits-number" onclick="startNewGame(21)">
+            <div class="tooltip2">21<span id="digits-tooltip-21" class="tooltip2text">7ms</span></div>
+        </div>
+        <div id="digits-22" class="btn digits-number" onclick="startNewGame(22)">
+            <div class="tooltip2">22<span id="digits-tooltip-22" class="tooltip2text">7ms</span></div>
+        </div>
+        <div id="digits-23" class="btn digits-number" onclick="startNewGame(23)">
+            <div class="tooltip2">23<span id="digits-tooltip-23" class="tooltip2text">7ms</span></div>
+        </div>
+        <div id="digits-24" class="btn digits-number" onclick="startNewGame(24)">
+            <div class="tooltip2">24<span id="digits-tooltip-24" class="tooltip2text">7ms</span></div>
+        </div>
+        <div id="digits-25" class="btn digits-number" onclick="startNewGame(25)">
+            <div class="tooltip2">25<span id="digits-tooltip-25" class="tooltip2text">7ms</span></div>
+        </div>
+ 
+        <div class="form-group game-type">
+            <select class="form-control" id="game-type-select" onchange="changeGameType()">
+                <option value="N">Normal Speed</option>
+                <option value="S">Super Speed</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Score section -->
+    <div class="container score-section">
+        <div class="new-game-section">
+            <span class="btn btn-sm btn-primary" onclick="startNewGame()">New Game</span>
+        </div>
+        <div class="change-font-size">
+            <span class="btn btn-sm btn-primary" onclick="changeFontSize(-1)">-</span>
+            <span class="btn btn-sm btn-primary" onclick="changeFontSize(0)">A</span>
+            <span class="btn btn-sm btn-primary" onclick="changeFontSize(1)">+</span>
+        </div>
+
+        <div class="score-details">
+            <span>Score: </span>
+            <span id="score-1" class="label score-number">1</span>
+            <span id="score-2" class="label score-number">2</span>
+            <span id="score-3" class="label score-number">3</span>
+            <span class="label score-number">&nbsp;</span>
+            </div>
+    </div>
+
+    <!-- Timer bar section -->
+    <div class="container timer-section">
+        <p id="timer-title">Display Time: <span id="timer-time">0</span> ms</p>
+        <div class="progress1">
+            <div id="timer-bar" class="progress-bar1" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:0% ">
+            </div>
+        </div>
+    </div>
+
+    <div class="container instruction-section">
+        <span id="new-game"></span>
+        <span id="final-score"></span>
+        <span id="instruction-detail"></span>
+    </div>
+
+    <div class="container try-section">
+        <table class="try-table">
+            <tr class="try-tr">
+                <td class="try-label">Question:</td>
+                <td>
+                    <div id="try-display-question">_</div>
+                </td>
+                <td>
+                    <div id="try-comment-question" class="try-comment"></div>
+                </td>
+            </tr>
+            <tr class="try-tr">
+                <td class="try-label">Guess:</td>
+                <td>
+                    <div id="try-display-guess">_</div>
+                </td>
+                <td>
+                    <div id="try-comment-guess" class="try-comment"></div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="input-number-section" class="container input-section">
+        <span id="input-0" class="btn btn-sml btn-info input-number" onclick="addNumber(0)">0</span>
+        <span id="input-1" class="btn btn-sml btn-info input-number" onclick="addNumber(1)">1</span>
+        <span id="input-2" class="btn btn-sml btn-info input-number" onclick="addNumber(2)">2</span>
+        <span id="input-3" class="btn btn-sml btn-info input-number" onclick="addNumber(3)">3</span>
+        <span id="input-4" class="btn btn-sml btn-info input-number" onclick="addNumber(4)">4</span>
+        <span id="input-5" class="btn btn-sml btn-info input-number" onclick="addNumber(5)">5</span>
+        <span id="input-6" class="btn btn-sml btn-info input-number" onclick="addNumber(6)">6</span>
+        <span id="input-7" class="btn btn-sml btn-info input-number" onclick="addNumber(7)">7</span>
+        <span id="input-8" class="btn btn-sml btn-info input-number" onclick="addNumber(8)">8</span>
+        <span id="input-9" class="btn btn-sml btn-info input-number" onclick="addNumber(9)">9</span>
+        <span id="input-10" class="btn btn-sml btn-info input-number" onclick="addNumber(10)">DEL</span>
+        <span id="input-11" class="btn btn-sml btn-info input-number" onclick="addNumber(11)">CLR</span>
+    </div>
+
+    <div id="buttons" class="container button-section">
+        <button id="btn-show" type="button" class="btn btn-danger" onclick="showQuestion()">Show</button>
+        <button id="btn-hide" type="button" class="btn btn-warning" onclick="hideQuestion()">Hide</button>
+        <button id="btn-guess" type="button" class="btn btn-success" onclick="guessQuestion()">Guess</button>
+    </div>
+
+    <div id="play-again" class="container play-again-section">
+        <button id="btn-play-again" type="button" class="btn btn-primary" onclick="newGame()">Play Again</button>
+        <button id="btn-next-level" type="button" class="btn btn-primary" onclick="playNextLevel()">Next Level</button>
+    </div>
+
+    <div class="container end-section">
+    </div>
+
+    <div id="help-section">
+        <div class="overlay-section">
+            <div class="help-details">
+                <div class="btn btn-primary" onclick="showHelp()">Close</div>
+                <h4>The Game</h4>
+                <p>This is a simple game where the computer displays a number and you remember it. The catch is that the number
+                    is display for a very short time (it only seems that way).
+                </p>
+                <ol>
+                    <li>SHOW - display the number</li>
+                    <li>HIDE - hide number if done before time runs out</li>
+                    <li>GUESS - check your input number</li>
+                </ol>
+            </div>
+            <p />
+
+            <div class="changelog-details">
+                <h4>Changelog</h4>
+                v0.5 2016-08-03<br/>
+                <ul>
+                    <li>Initial release</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

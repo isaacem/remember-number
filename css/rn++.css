@@ -1,0 +1,310 @@
+/* 
+    Application section 
+*/
+
+* {
+    font-family: sans-serif;
+}
+
+.rn-sub-section {
+    display: inline-block;
+    border: 1px solid black;
+    padding: 3px 5px;
+    margin: 1px 5px;
+}
+
+.rn-inline {
+    display: inline;
+}
+
+.rn-label {
+    color: black;
+    display: inline;
+    padding: 3px 5px;
+}
+
+.rn-value {
+    color: black;
+    display: inline;
+    padding: 3px 5px;
+}
+
+/* 
+    Header section 
+*/
+
+.header-section {
+    border-top: 3px solid darkblue;
+    border-bottom: 3px solid darkblue;
+    padding: 4px;
+    text-align: center;
+}
+
+.android-version {
+    float: left;
+}
+
+.title-section {
+/* nothing */
+}
+
+.title-line {
+    font-size: x-large;
+    font-weight: bold;
+    text-shadow: 1px 2px lightblue;
+    padding: 1px 4px;
+}
+
+.title-super {
+    font-size: x-small;
+    color: wheat;
+    background: darkslateblue;
+    padding: 1px 8px;
+    border-radius: 3px;
+    vertical-align: top;
+}
+
+.title-version {
+    font-size: small;
+}
+
+.settings-section {
+    float: right;
+}
+
+/* 
+    Progress section 
+*/
+
+.progress-section {
+    padding-top: 7px;
+    padding-bottom: 7px;
+    text-align: center;
+}
+
+.progress-title {
+    font-weight: bold;
+    padding: 3px 8px;
+}
+
+.progress-details {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    margin: auto;
+    border-width: 1px 2px 1px 1px;
+    border-style: solid;
+    border-color: black;
+}
+
+.progress-digit {
+    float: left;
+    min-width: 3em;
+}
+
+.progress-digit:hover {
+    background: yellowgreen;
+    cursor: pointer;
+}
+
+.progress-digit:hover:active {
+    background: lightgreen;
+    cursor: pointer;
+}
+
+.progress-digit-top {
+    font-size: x-small;
+    padding: 1px 3px;
+    border-width: 1px 0px 0px 1px;
+    border-style: solid;
+    border-color: black;
+}
+
+.progress-digit-bottom {
+    font-size: small;
+    padding: 1px 3px;
+    border-width: 1px 0px 1px 1px;
+    border-style: solid;
+    border-color: black;
+}
+
+.progress-animate {
+    background: white;
+}
+
+.progress-animate-start {
+    background: green;
+}
+
+.progress-animate-css {
+    animation: progress-highligh 5s ease-out;
+}
+
+@-webkit-keyframes progress-highlight {
+    from {background: green;}
+    to {background: white;}
+} 
+
+/* Standard syntax */ 
+@keyframes progress-highligh {
+    from {background: green;}
+    to {background: white;}
+}
+
+/* 
+Control section 
+*/
+.ctrl-section {
+    border-bottom: 1px dashed darkgrey;
+    padding: 7px 0px 10px 0px;
+    text-align: center;
+}
+
+.ctrl-sub-section {
+    display: inline-block;
+    border: 1px solid black;
+    padding: 3px 5px;
+    margin: 0px 5px;
+}
+
+.ctrl-btn {
+    display: inline-block;
+    background: dodgerblue;
+    padding: 3px 10px;
+    min-width: 2en;
+}
+
+.ctrl-btn,
+.ctrl-btn:hover, 
+.ctrl-btn:focus {
+    color: white;
+}
+
+.ctrl-btn:hover {
+    background: darkslateblue;
+    cursor: pointer;
+}
+
+.ctrl-btn:hover:active {
+    background: lightskyblue;
+    cursor: pointer;
+}
+
+/* 
+    Timing section 
+*/
+
+.timing-section {
+    text-align: center;
+    padding: 7px;
+    font-size: medium;
+}
+
+.timing-value {
+    display: inline-block;
+    min-width: 4em;
+    text-align: right;    
+}
+
+/* 
+    Display section 
+*/
+
+.results-section {
+    text-align: center;
+    padding-bottom: 5px;
+}
+
+.display-section {
+    padding-bottom: 5px;
+    border-bottom: 1px dashed darkgray;
+}
+
+.display-sub-section {
+    text-align: center;
+    padding: 3px;
+    font-size: large;
+    border: 1px solid darkgrey;
+    margin: 2px;
+}
+
+.play-font-size {
+    font-size: 100%;
+}
+
+.instruction-section {
+    text-align: center;
+    padding: 5px;
+    margin: 5px;
+    border-bottom: 1px dashed darkgray;
+}
+
+.instruction-detail {
+
+}
+
+.input-section {
+    margin: 10px;
+    text-align: center;
+}
+
+.input-no {
+    display: inline;
+    color: white;
+    background: lightseagreen;
+    padding: 5px 7px;
+    font-weight: bold;
+}
+
+.input-no-btn {
+    display: inline-block;
+    background: seagreen;
+    padding: 6px 8px;
+    min-width: 2em;
+    margin: 0px 2px;
+}
+
+.input-no-btn,
+.input-no-btn:hover,
+.input-no-btn:focus {
+    color: white;
+ }
+
+.input-no-btn:hover {
+    background: darkgreen;
+    cursor: pointer;
+}
+
+.input-no-btn:hover:active {
+    background: lightseagreen;
+    cursor: pointer;
+}
+
+.command-section {
+    margin: 10px;
+    text-align: center;
+}
+
+.command-sub-section {
+    display: inline-block;
+}
+
+.help-section {
+     visibility: hidden;
+     position: absolute;
+     background-color: rgba(128, 128, 128, 0.5);
+     left: 0px;
+     top: 0px;
+     width: 100%;
+     height: 100%;
+     z-index: 1;
+}
+
+.overlay-section {
+     width: 60%;
+     margin: 100px auto;
+     background: white;
+     border: 1px solid black;
+     padding: 15px;
+     z-index: 2 ;
+}
